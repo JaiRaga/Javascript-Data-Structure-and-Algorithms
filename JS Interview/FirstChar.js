@@ -1,28 +1,27 @@
+// Returns the first non repeating char in a string
+
 let firstNonRepeatChar = (str) => {
-    let s = '',
-        arr = [],
-        char = '',
+    let char = '',
+        s = [],
         count = 0;
 
-    s = str.slice(0,);
-    arr = s.split('');
+    s = str.toLowerCase().split('');
     
-    for (let i = 0; i < arr.length; i++) {
-        for (let j = 0; j < arr.length; j++) {
-            if (arr[i] === arr[j]) {
-                continue;
-            } else {
+    for (let i = 0; i < s.length; i++) {
+        char = s[i];
+        for (let j = 0; j < s.length; j++) {
+            if (i !== j && char === s[j]) {
                 count += 1;
-            }
-
-            if (count === arr.length - 1 && j === arr.length - 1) {
-                char = arr[i];
-                console.log(char, j, i, count);
+                // console.log(char);
                 break;
             }
         }
+
+        if (count === 0) return char;
+        count = 0;
     }
-    console.log(char);
+    return 'Nope';
 }
 
-firstNonRepeatChar("the quick brown fox jumps then quickly blow air");
+let result = firstNonRepeatChar("the quick brown fox jumps then quickly blow air"); // answer: 'f'
+console.log(result);
