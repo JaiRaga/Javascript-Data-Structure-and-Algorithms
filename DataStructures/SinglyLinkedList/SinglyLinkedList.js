@@ -144,6 +144,13 @@ let n = new SinglyLinkedList();
 n.push(10);
 n.push(11);
 n.push(12);
+n.push(13);
+n.push(14);
+n.push(15);
+n.push(16);
+n.push(17);
+n.push(18);
+
 // console.log(n.pop());
 // console.log(n.shift());
 // console.log(n.unshift(5));
