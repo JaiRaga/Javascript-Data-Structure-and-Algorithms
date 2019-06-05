@@ -53,6 +53,33 @@ class BST {
         }
         return false;
     }
+
+    BFS() {
+        let node  = this.root,
+            data  = [],
+            queue = [];
+
+        queue.push(node)
+        while (queue.length) {
+            node = queue.shift();
+            data.push(node.value);
+
+            if (node.left) queue.push(node.left);
+            if (node.right) queue.push(node.right);
+        }
+        return data;
+    }
+
+    DFSPreOrder() {
+        let data = [];
+        function traverse(node) {
+            data.push(node.value);
+            if (node.left) traverse(node.left);
+            if (node.right) traverse(node.right);
+        }
+        traverse(this.root);
+        return data;
+    } 
 }
 
 let b = new BST();
@@ -61,5 +88,9 @@ b.insert(79);
 b.insert(81);
 b.insert(99);
 b.insert(65);
+b.insert(68);
 console.log(b.find(80));
 console.log(b);
+
+console.log(b.BFS());
+console.log(b.DFSPreOrder());
